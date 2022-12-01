@@ -1,0 +1,57 @@
+:root {
+  --clr-primary: #f0f0f0;
+  --clr-secondary: #2C51A1;
+  --clr-text: #333333;
+  --clr-theme: #2C51A1;
+}
+
+html.light {
+  --clr-primary: #f0f0f0;
+  --clr-secondary: #2C51A1;
+  --clr-text: #333333;
+}
+
+html.dark {
+  --clr-primary: #333333;
+  --clr-secondary: #2C51A1;
+  --clr-text: #e0e0e0;
+}
+
+* {
+  color: var(--clr-text);
+}
+
+body {
+  background-color: var(--clr-primary);
+}
+
+nav {
+  background-color: var(--clr-secondary);
+}
+nav * {
+  color: #e0e0e0 !important;
+}
+
+.bg-img {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(2rem);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(2rem);
+  }
+}/*# sourceMappingURL=style.css.map */
