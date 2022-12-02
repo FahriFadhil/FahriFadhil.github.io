@@ -21,7 +21,7 @@ body::before {
   position: fixed;
   background: url(../img/bg.png) #040404 ;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   left: 0;
   right: 0;
