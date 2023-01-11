@@ -1,4 +1,9 @@
-import Deck from './utils/Deck.js'
+import Deck from './utils/Deck'
+// import MatchGame from './views/Match.js'
+// import TriPieaksGame from './views/TriPeaks.js'
+// import PyramidGame from './views/Pyramid.js'
+
+console.log('JS is loaded');
 
 const deck = new Deck();
 // document.querySelectorAll('.card').forEach(card => card.addEventListener('click', (ev) => ev.target.style.transform = 'rotateY(180deg)'))
@@ -12,7 +17,7 @@ const router = async () => {
     const possibleMatch = routes.map(route => {
         return {
             route: route,
-            result: location.pathname.match
+            result: location.pathname === route.path
         }
     })
 }
