@@ -9,5 +9,10 @@ const router = async () => {
         { path: '/tri-peaks', view: TriPieaksGame },
         { path: '/pyramid', view: PyramidGame }
     ]
-    const 
+    const possibleMatch = routes.map(route => {
+        return {
+            route: route,
+            result: location.pathname.match
+        }
+    })
 }
