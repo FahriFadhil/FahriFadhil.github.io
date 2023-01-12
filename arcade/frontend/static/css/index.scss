@@ -1,0 +1,49 @@
+:root {
+    --nav-width : 16rem
+}
+
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #333;
+    padding-top: 2rem;
+    width: var(--nav-width);
+
+    .nav__link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.1rem;
+        padding: 1rem 3rem;
+        text-decoration: none;
+        color: #eeeeee;
+        font-weight: 500;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+    }
+}
+
+#app {
+    margin-left: var(--nav-width);
+    padding: 2rem 3rem;
+    line-height: 1.5;
+    font-weight: 500;
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
