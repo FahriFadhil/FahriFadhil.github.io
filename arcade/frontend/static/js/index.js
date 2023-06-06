@@ -1,6 +1,7 @@
-import Dashboard from "./views/Dashboard.js";
-import Posts from "./views/Posts.js";
-import Settings from "./views/Settings.js";
+import Lobby from "./views/Lobby.js";
+import Match from "./views/Match.js";
+import TriPeaks from "./views/TriPeaks.js";
+import Pyramid from "./views/Pyramid.js";
 
 const navigateTo = url => {
     history.pushState(null, null, url)
@@ -9,9 +10,10 @@ const navigateTo = url => {
 
 const router = async () => {
     const routes = [
-        { path: "/", view: Dashboard },
-        { path: "/posts", view: Posts },
-        { path: "/settings", view: Settings }
+        { path: "/", view: Lobby },
+        { path: "/match", view: Match },
+        { path: "/tri-peaks", view: TriPeaks },
+        { path: "/pyramid", view: Pyramid },
     ];
 
     const potentialMatches = routes.map(route => {

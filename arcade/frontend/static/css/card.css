@@ -1,0 +1,484 @@
+:root {
+  --card-width: 180px ;
+}
+
+[data-suit=♠],
+[data-suit=♣] {
+  color: #333333;
+}
+
+[data-suit=♥],
+[data-suit=♦] {
+  color: #d00000;
+}
+
+.card {
+  transform-style: preserve-3d;
+  position: relative;
+  aspect-ratio: 2/3;
+  width: var(--card-width);
+  border: 0.1px solid black;
+  border-radius: calc(var(--card-width) / 16);
+  transition: .5s;
+}
+.card .card-front {
+  border-radius: calc(var(--card-width) / 16);
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  padding: calc(var(--card-width) / 18) calc(var(--card-width) / 6);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+.card .card-back {
+  border-radius: calc(var(--card-width) / 16);
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, #d00, #333);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  pointer-events: none;
+}
+
+.card-front .corner-number {
+  font-size: calc(var(--card-width) / 5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-front .corner-number.top {
+  position: absolute;
+  top: calc(var(--card-width) / 24);
+  left: calc(var(--card-width) / 32);
+}
+
+.card-front .corner-number.top .pip {
+  font-size: calc(var(--card-width) / 8);
+  position: relative;
+  top: calc(var(--card-width) / -16);
+}
+
+.card-front .corner-number.bottom {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  right: calc(var(--card-width) / 32);
+  rotate: 180deg;
+}
+
+.card-front .corner-number.bottom .pip {
+  font-size: calc(var(--card-width) / 8);
+  position: relative;
+  top: calc(var(--card-width) / -16);
+}
+
+.card-front .pip-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.card-front .pip-container .pip {
+  font-size: calc(var(--card-width) / 4.25);
+}
+
+[data-value=A] .pip-container .pip {
+  font-size: calc(var(--card-width) / 2);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-value="2"] .pip-container .pip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-value="2"] .pip-container :nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+  transform-origin: 0;
+}
+
+[data-value="3"] .pip-container .pip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-value="3"] .pip-container :nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+  transform-origin: 0;
+}
+
+[data-value="3"] .pip-container :nth-child(3) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-value="4"] .pip-container .pip {
+  position: absolute;
+}
+
+[data-value="4"] .pip-container :nth-child(2) {
+  position: absolute;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="4"] .pip-container :nth-child(3) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+}
+
+[data-value="4"] .pip-container :nth-child(4) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="5"] .pip-container .pip {
+  position: absolute;
+}
+
+[data-value="5"] .pip-container :nth-child(2) {
+  position: absolute;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="5"] .pip-container :nth-child(3) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+}
+
+[data-value="5"] .pip-container :nth-child(4) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="5"] .pip-container :nth-child(5) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-value="6"] .pip-container .pip {
+  position: absolute;
+}
+
+[data-value="6"] .pip-container :nth-child(2) {
+  position: absolute;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="6"] .pip-container :nth-child(3) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+}
+
+[data-value="6"] .pip-container :nth-child(4) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="6"] .pip-container :nth-child(5) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+[data-value="6"] .pip-container :nth-child(6) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="7"] .pip-container .pip {
+  position: absolute;
+}
+
+[data-value="7"] .pip-container :nth-child(2) {
+  position: absolute;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="7"] .pip-container :nth-child(3) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+}
+
+[data-value="7"] .pip-container :nth-child(4) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="7"] .pip-container :nth-child(5) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+[data-value="7"] .pip-container :nth-child(6) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="7"] .pip-container :nth-child(7) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20%;
+}
+
+[data-value="8"] .pip-container .pip {
+  position: absolute;
+}
+
+[data-value="8"] .pip-container :nth-child(2) {
+  position: absolute;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="8"] .pip-container :nth-child(3) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+}
+
+[data-value="8"] .pip-container :nth-child(4) {
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  rotate: 180deg;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="8"] .pip-container :nth-child(5) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+[data-value="8"] .pip-container :nth-child(6) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="8"] .pip-container :nth-child(7) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20%;
+}
+
+[data-value="8"] .pip-container :nth-child(8) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20%;
+  transform-origin: 0;
+  rotate: 180deg;
+}
+
+[data-value="9"] .pip-container .pip {
+  position: absolute;
+}
+
+[data-value="9"] .pip-container :nth-child(2) {
+  position: absolute;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="9"] .pip-container :nth-child(3) {
+  position: absolute;
+  top: 27.5%;
+}
+
+[data-value="9"] .pip-container :nth-child(4) {
+  position: absolute;
+  top: 27.5%;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="9"] .pip-container :nth-child(5) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: 27.5%;
+}
+
+[data-value="9"] .pip-container :nth-child(6) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: 27.5%;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="9"] .pip-container :nth-child(7) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+}
+
+[data-value="9"] .pip-container :nth-child(8) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="9"] .pip-container :nth-child(9) {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+}
+
+[data-value="10"] .pip-container .pip {
+  position: absolute;
+}
+
+[data-value="10"] .pip-container :nth-child(2) {
+  position: absolute;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="10"] .pip-container :nth-child(3) {
+  position: absolute;
+  top: 27.5%;
+}
+
+[data-value="10"] .pip-container :nth-child(4) {
+  position: absolute;
+  top: 27.5%;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="10"] .pip-container :nth-child(5) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: 27.5%;
+}
+
+[data-value="10"] .pip-container :nth-child(6) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: 27.5%;
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="10"] .pip-container :nth-child(7) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+}
+
+[data-value="10"] .pip-container :nth-child(8) {
+  rotate: 180deg;
+  position: absolute;
+  bottom: calc(var(--card-width) / 24);
+  right: calc(var(--card-width) / 6);
+}
+
+[data-value="10"] .pip-container :nth-child(9) {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+}
+
+[data-value="10"] .pip-container :nth-child(10) {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15%;
+  rotate: 180deg;
+  transform-origin: 0;
+}
+
+[data-value=J] .pip-container,
+[data-value=Q] .pip-container,
+[data-value=K] .pip-container {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+[data-value=J] .pip-container .pip,
+[data-value=Q] .pip-container .pip,
+[data-value=K] .pip-container .pip {
+  display: none;
+}
+
+[data-value=J][data-suit=♠] .pip-container {
+  background-image: url(../image/jack-black.svg);
+}
+
+[data-value=Q][data-suit=♠] .pip-container {
+  background-image: url(../image/queen-black.svg);
+}
+
+[data-value=K][data-suit=♠] .pip-container {
+  background-image: url(../image/king-black.svg);
+}
+
+[data-value=J][data-suit=♣] .pip-container {
+  background-image: url(../image/jack-black.svg);
+}
+
+[data-value=Q][data-suit=♣] .pip-container {
+  background-image: url(../image/queen-black.svg);
+}
+
+[data-value=K][data-suit=♣] .pip-container {
+  background-image: url(../image/king-black.svg);
+}
+
+[data-value=J][data-suit=♥] .pip-container {
+  background-image: url(../image/jack-red.svg);
+}
+
+[data-value=Q][data-suit=♥] .pip-container {
+  background-image: url(../image/queen-red.svg);
+}
+
+[data-value=K][data-suit=♥] .pip-container {
+  background-image: url(../image/king-red.svg);
+}
+
+[data-value=J][data-suit=♦] .pip-container {
+  background-image: url(../image/jack-red.svg);
+}
+
+[data-value=Q][data-suit=♦] .pip-container {
+  background-image: url(../image/queen-red.svg);
+}
+
+[data-value=K][data-suit=♦] .pip-container {
+  background-image: url(../image/king-red.svg);
+}/*# sourceMappingURL=card.css.map */
